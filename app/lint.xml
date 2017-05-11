@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!--自動生成されるコードはlintの管理から外す-->
+    <issue id="RestrictedApi">
+        <ignore path="build/generated"/>
+    </issue>
+</lint>
