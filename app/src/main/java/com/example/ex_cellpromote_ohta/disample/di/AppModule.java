@@ -44,11 +44,11 @@ public class AppModule {
     @Singleton
     public OkHttpClient provideOkHttpClient() {
         // 本当だったらHttpClientModuleに切り出してProvideさせると良い
-        final String CACHEFILENAME = "okhttp.cache";
-        final long MAXCACHESIZE = 4 * 1024 * 1024; // 4MB
+        final String cacheFileName = "okhttp.cache";
+        final long maxCacheSize = 4 * 1024 * 1024; // 4MB
 
-        File cacheDir = new File(context.getCacheDir(), CACHEFILENAME);
-        Cache cache = new Cache(cacheDir, MAXCACHESIZE);
+        File cacheDir = new File(context.getCacheDir(), cacheFileName);
+        Cache cache = new Cache(cacheDir, maxCacheSize);
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .cache(cache)
