@@ -40,6 +40,7 @@ public class AppModule {
         return context;
     }
 
+    final String cacheFileName = "okhttp.cache";
     final long maxCacheSize = 4 * 1024 * 1024; // 4MB
 
     @Provides
