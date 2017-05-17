@@ -16,4 +16,4 @@ echo "* checkstyle       *"
 echo "********************"
 cat ./app/build/reports/checkstyle/checkstyle.xml \
     | checkstyle_filter-git diff origin/master \
-    | saddler report --require saddler/reporter/github --reporter $REPORTER
+    >> WERCKER_REPORT_MESSAGE_FILE
