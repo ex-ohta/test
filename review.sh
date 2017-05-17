@@ -3,7 +3,7 @@
 echo "********************"
 echo "* install gems     *"
 echo "********************"
-sudo gem install --no-document checkstyle_filter-git saddler saddler-reporter-github findbugs_translate_checkstyle_format android_lint_translate_checkstyle_format pmd_translate_checkstyle_format
+sudo gem install checkstyle_filter-git saddler saddler-reporter-github findbugs_translate_checkstyle_format android_lint_translate_checkstyle_format pmd_translate_checkstyle_format
 if [ $? -ne 0 ]; then
       echo 'Failed to install gems.'
       exit 1
