@@ -10,7 +10,7 @@ if [ $? -ne 0 ]; then
       echo 'Failed to install gems.'
       exit 1
 fi
-REPORTER=Saddler::Reporter::Github::PullRequestReviewComment
+REPORTER=Saddler::Reporter::Github::PullRequestComment
 echo "********************"
 echo "* checkstyle       *"
 echo "********************"
