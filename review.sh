@@ -1,5 +1,7 @@
 ! #/bin/bash
 
+LANG=C.UTF-8
+
 echo "********************"
 echo "* install gems     *"
 echo "********************"
