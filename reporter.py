@@ -49,6 +49,13 @@ class Reporter(object):
         if r.status_code == 200:
             self._pull_info = json.loads(r.text)
 
+    def _generate_review_comment_url(self):
+        """
+        Generate review comment url
+        HOST/repos/:owner/:repo/pulls/:num/comments
+        """
+        return self._pull_info[0]['review_comments_url']
+
     def _generate_comment_url(self):
         """
         Generate comment url
