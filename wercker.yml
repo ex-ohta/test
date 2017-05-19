@@ -28,11 +28,11 @@ build:
         name: run gradle codeCheck
         code: |
            ls
-           ./reporter.py
+#           ./reporter.py
 #          ./gradlew --project-cache-dir=$WERCKER_CACHE_DIR check
   after-steps:
     - script:
         name: run review comment
         code: |
             echo "review"
-          #./review.sh
+          # ./review.sh
