@@ -48,6 +48,7 @@ class Reporter(object):
         r = requests.get(url, headers=self._headers, params=params)
         if r.status_code == 200:
             self._pull_info = json.loads(r.text)
+            pprint(self._pull_info)
 
     def _generate_review_comment_url(self):
         """
@@ -61,7 +62,6 @@ class Reporter(object):
         Generate comment url
         HOST/repos/:owner/:repo/issues/:num/comments
         """
-        print(self._pull_info)
         return self._pull_info[0]['issue_url'] + '/comments'
 
     def _write_cache(self):
@@ -80,7 +80,7 @@ class Reporter(object):
         """ Post review comment for this PR """
         url = self._generate_review_comment_url()
         commitId = os.environ['WERCKER_GIT_COMMIT']
-        data = json.dumps({'body': comment, 'commitId': commitId, 'path': path, 'position':position})
+        data = json.dumps({'body': comment, 'commit_id': commitId, 'path': path, 'position':position})
         r = requests.post(url, headers=self._headers, data=data)
         pprint.pprint(json.loads(r.text))
 
