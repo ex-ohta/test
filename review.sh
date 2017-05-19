@@ -44,4 +44,4 @@ echo "* android lint     *"
 echo "********************"
 cat ./app/build/reports/lint/lint_results.xml \
     | android_lint_translate_checkstyle_format translate \
-    | checkstyle_filter-git diff origin/master 
+    | checkstyle_filter-git diff origin/master
