@@ -33,4 +33,5 @@ build:
     - script:
         name: run review comment
         code: |
-          ./review.sh
+            echo "review"
+          #./review.sh
