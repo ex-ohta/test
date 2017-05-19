@@ -51,6 +51,7 @@ android {
     lintOptions {
         disable 'InvalidPackage'
         abortOnError false
+        absolutePaths false
 
         xmlReport true
         xmlOutput new File("$project.buildDir/reports/lint/lint_results.xml")
