@@ -54,6 +54,7 @@ class Reporter(object):
         Generate comment url
         HOST/repos/:owner/:repo/issues/:num/comments
         """
+        print(self._pull_info)
         return self._pull_info[0]['issue_url'] + '/comments'
 
     def _write_cache(self):
