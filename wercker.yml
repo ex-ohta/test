@@ -28,7 +28,7 @@ build:
         name: run gradle codeCheck
         code: |
            ls
-           ./reporter
+           ./reporter.py
 #          ./gradlew --project-cache-dir=$WERCKER_CACHE_DIR check
   after-steps:
     - script:
