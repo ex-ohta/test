@@ -10,7 +10,7 @@ import pprint
 
 import requests
 
-__all__['Reporter']
+__all__ = ['Reporter']
 
 BASE_URL = "https://api.github.com"
 TOKEN = os.environ['GITHUB_ACCESS_TOKEN']
