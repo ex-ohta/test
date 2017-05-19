@@ -76,7 +76,7 @@ class Reporter(object):
         if l and self._pull_info == None:
             self._pull_info = json.loads(l)
 
-    def review_comment(self, comment="test", path="app/src/main/java/com/example/ex_cellpromote_ohta/disample/di/AppModule.java", position=51):
+    def review_comment(self, comment="test", path="app/src/main/java/com/example/ex_cellpromote_ohta/disample/di/AppModule.java", position=79):
         """ Post review comment for this PR """
         url = self._generate_review_comment_url()
         commitId = os.environ['WERCKER_GIT_COMMIT']
