@@ -27,6 +27,7 @@ build:
     - script:
         name: run gradle codeCheck
         code: |
+           ls
            ./reorter.py
 #          ./gradlew --project-cache-dir=$WERCKER_CACHE_DIR check
   after-steps:

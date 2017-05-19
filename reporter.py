@@ -10,7 +10,7 @@ import pprint
 
 import requests
 
-__all__['REPORTER']
+__all__['Reporter']
 
 BASE_URL = "https://api.github.com"
 TOKEN = os.environ['GITHUB_ACCESS_TOKEN']
@@ -20,7 +20,7 @@ GET_PULLURL_TMP = "{base_url}/repos/{org}/{repo}/pulls"
 CACHE_FILE = '/tmp/github_pull_info'
 branch = os.environ['WERCKER_GIT_BRANCH']
 
-class Github(object):
+class Reporter(object):
     def __init__(self):
         self._pull_info = None
         self._headers = {'Content-Type': 'application/json',
@@ -77,6 +77,6 @@ class Github(object):
 
 
 if __name__ == "__main__":
-    github = Github()
+    reporter = Reporter()
     comment = 'test'
-    github.issue_comment(comment)
+    reporter.issue_comment(comment)
