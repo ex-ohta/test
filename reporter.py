@@ -69,6 +69,14 @@ class Reporter(object):
         if l and self._pull_info == None:
             self._pull_info = json.loads(l)
 
+    def review_comment(self, comment="test", path="app/src/main/java/com/example/ex_cellpromote_ohta/disample/di/AppModule.java", position=51):
+        """ Post review comment for this PR """
+        url = self._generate_review_comment_url()
+        commitId = os.environ['WERCKER_GIT_COMMIT']
+        data = json.dumps({'body': comment, 'commitId': commitId, 'path': path, 'position':position})
+        r = requests.post(url, headers=self._headers, data=data)
+        pprint.pprint(json.loads(r.text))
+
     def issue_comment(self, comment):
         """ Post issue comment for this PR """
         url = self._generate_comment_url()
@@ -80,4 +88,4 @@ class Reporter(object):
 if __name__ == "__main__":
     reporter = Reporter()
     comment = 'test'
-    reporter.issue_comment(comment)
+    reporter.review_comment()
