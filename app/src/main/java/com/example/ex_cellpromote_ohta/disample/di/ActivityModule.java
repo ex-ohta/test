@@ -11,6 +11,7 @@ import dagger.Module;
 @Module
 public class ActivityModule {
 
+    final int noUsedVariable = 1;
     final AppCompatActivity activity;
 
     public ActivityModule(AppCompatActivity activity) {
