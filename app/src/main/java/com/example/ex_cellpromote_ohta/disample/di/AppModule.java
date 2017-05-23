@@ -40,8 +40,8 @@ public class AppModule {
         return context;
     }
 
-    final String cacheFileName = "okhttp.cache";
-    final long maxCacheSize = 4 * 1024 * 1024; // 4MB
+    final String CacheFileName = "okhttp.cache";
+    final long MaxCacheSize = 4 * 1024 * 1024; // 4MB
 
     @Provides
     @Singleton
@@ -74,7 +74,7 @@ public class AppModule {
     }
 
     @Provides
-    public OrmaDatabase provideOrma(Context context) {
+    public OrmaDatabase provideOrma() {
         return OrmaDatabase
                 .builder(context)
                 .writeOnMainThread(AccessThreadConstraint.FATAL)

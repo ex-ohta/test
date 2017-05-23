@@ -12,6 +12,7 @@ import dagger.Module;
 public class ActivityModule {
 
     final int noUsedVariable = 1;
+    final int noUsedVariable2 = 2;
     final AppCompatActivity activity;
 
     public ActivityModule(AppCompatActivity activity) {
