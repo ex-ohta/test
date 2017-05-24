@@ -30,8 +30,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AppModule {
 
     private Context context;
-    final int noUsedVariable = 1;
-    final int noUsedVariable2 = 2;
 
     public AppModule(Application context) {
         this.context = context;
@@ -41,9 +39,6 @@ public class AppModule {
     public Context provideContext() {
         return context;
     }
-
-    final String cacheFileName = "okhttp.cache";
-    final long maxCacheSize = 4 * 1024 * 1024; // 4MB
 
     @Provides
     @Singleton
@@ -104,8 +99,5 @@ public class AppModule {
 //    public Repository provideRepository(GitHubClient client, Dao dao) {
 //        return new Repository(client, dao);
 //    }
-
-    final int noUsedVariable = 1;
-    final int noUsedVariable2 = 2;
 
 }
