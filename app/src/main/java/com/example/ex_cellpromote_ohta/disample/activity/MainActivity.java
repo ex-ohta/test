@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
          */
 //        // http client の作成
 //        final String CACHE_FILE_NAME = "okhttp.cache";
-//        final long MAX_CACHE_SIZE = 4 * 1024 * 1024; // 4MB
+        final long MAX_CACHE_SIZE = 4 * 1024 * 1024; // 4MB
 //        File cacheDir = new File(getApplicationContext().getCacheDir(), CACHE_FILE_NAME);
 //        Cache cache = new Cache(cacheDir, MAX_CACHE_SIZE);
 //        OkHttpClient httpClient = new OkHttpClient.Builder()
