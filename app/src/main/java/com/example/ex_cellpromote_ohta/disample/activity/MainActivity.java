@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
          * つまり依存するオブジェクトが多いので、モックオブジェクトへの差し替えなどが非常に面倒。
          */
 //        // http client の作成
-        final String CACHE_FILE_NAME = "okhttp.cache";
-        final long MAX_CACHE_SIZE = 4 * 1024 * 1024; // 4MB
-        File cacheDir = new File(getApplicationContext().getCacheDir(), CACHE_FILE_NAME);
-        Cache cache = new Cache(cacheDir, MAX_CACHE_SIZE);
+//        final String CACHE_FILE_NAME = "okhttp.cache";
+//        final long MAX_CACHE_SIZE = 4 * 1024 * 1024; // 4MB
+//        File cacheDir = new File(getApplicationContext().getCacheDir(), CACHE_FILE_NAME);
+//        Cache cache = new Cache(cacheDir, MAX_CACHE_SIZE);
 //        OkHttpClient httpClient = new OkHttpClient.Builder()
 //                .cache(cache)
 //                .addInterceptor(chain -> {
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 //        Dao dao = new Dao(database);
 //
 //        // repositoryの作成
-        Repository repository = new Repository(client, dao);
+//        Repository repository = new Repository(client, dao);
 
         /*
          * DaggerなどのDIライブラリを用いて依存性の注入を行う場合。

@@ -18,4 +18,11 @@ public class ActivityModule {
     public ActivityModule(AppCompatActivity activity) {
         this.activity = activity;
     }
+
+    final int noUsedVariable3 = 1;
+    final int noUsedVariable4 = 2;
+
+    final int noUsedVariabl5 = 1;
+    final int noUsedVariable6 = 2;
+
 }
