@@ -40,9 +40,6 @@ public class AppModule {
         return context;
     }
 
-    final String cacheFileName = "okhttp.cache";
-    final long maxCacheSize = 4 * 1024 * 1024; // 4MB
-
     @Provides
     @Singleton
     public OkHttpClient provideOkHttpClient() {
@@ -73,8 +70,11 @@ public class AppModule {
                 .create(GitHubService.class);
     }
 
+    final int noUsedVariable = 1;
+    final int noUsedVariable2 = 2;
+
     @Provides
-    public OrmaDatabase provideOrma(Context context) {
+    public OrmaDatabase provideOrma() {
         return OrmaDatabase
                 .builder(context)
                 .writeOnMainThread(AccessThreadConstraint.FATAL)
