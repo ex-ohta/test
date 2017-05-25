@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 //        Dao dao = new Dao(database);
 //
 //        // repositoryの作成
-//        Repository repository = new Repository(client, dao);
+        Repository repository = new Repository(client, dao);
 
         /*
          * DaggerなどのDIライブラリを用いて依存性の注入を行う場合。
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     recyclerView.setAdapter(adapter);
 
                     adapter.addAll(contributors);
-
+                    final int AAA = 1;
                 }, throwable -> {
                     throwable.printStackTrace();
                     findViewById(R.id.progress).setVisibility(View.GONE);

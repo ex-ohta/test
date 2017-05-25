@@ -3,8 +3,11 @@ package com.example.ex_cellpromote_ohta.disample.di;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.ex_cellpromote_ohta.disample.api.GitHubClient;
 import com.example.ex_cellpromote_ohta.disample.api.GitHubService;
+import com.example.ex_cellpromote_ohta.disample.database.Dao;
 import com.example.ex_cellpromote_ohta.disample.database.OrmaDatabase;
+import com.example.ex_cellpromote_ohta.disample.repository.Repository;
 import com.github.gfx.android.orma.AccessThreadConstraint;
 
 import java.io.File;
@@ -70,9 +73,6 @@ public class AppModule {
                 .create(GitHubService.class);
     }
 
-    final int noUsedVariable = 1;
-    final int noUsedVariable2 = 2;
-
     @Provides
     public OrmaDatabase provideOrma() {
         return OrmaDatabase
@@ -95,9 +95,10 @@ public class AppModule {
 //        return new GitHubClient(service);
 //    }
 
-//    @Provides
-//    public Repository provideRepository(GitHubClient client, Dao dao) {
-//        return new Repository(client, dao);
-//    }
+    @Provides
+    public Repository provideRepository(GitHubClient client, Dao dao) {
+        final String AAA = "AAA";
+        return new Repository(client, dao);
+    }
 
 }
