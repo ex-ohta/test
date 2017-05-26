@@ -43,9 +43,6 @@ public class AppModule {
         return context;
     }
 
-    final String cacheFileName = "okhttp.cache";
-    final long maxCacheSize = 4 * 1024 * 1024; // 4MB
-
     @Provides
     @Singleton
     public OkHttpClient provideOkHttpClient() {
@@ -100,7 +97,7 @@ public class AppModule {
 
     @Provides
     public Repository provideRepository(GitHubClient client, Dao dao) {
-        final String AAAB = "AAA";
+        final String AAA = "AAA";
         return new Repository(client, dao);
     }
 
