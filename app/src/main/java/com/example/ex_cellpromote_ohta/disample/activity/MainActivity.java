@@ -9,8 +9,6 @@ import android.view.View;
 
 import com.example.ex_cellpromote_ohta.disample.DiSampleApplication;
 import com.example.ex_cellpromote_ohta.disample.R;
-import com.example.ex_cellpromote_ohta.disample.api.GitHubClient;
-import com.example.ex_cellpromote_ohta.disample.api.GitHubService;
 import com.example.ex_cellpromote_ohta.disample.database.Dao;
 import com.example.ex_cellpromote_ohta.disample.database.OrmaDatabase;
 import com.example.ex_cellpromote_ohta.disample.di.ActivityComponent;
@@ -18,18 +16,10 @@ import com.example.ex_cellpromote_ohta.disample.di.ActivityModule;
 import com.example.ex_cellpromote_ohta.disample.repository.Repository;
 import com.github.gfx.android.orma.AccessThreadConstraint;
 
-import java.io.File;
-
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.Cache;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * MainActivity
@@ -60,26 +50,26 @@ public class MainActivity extends AppCompatActivity {
          * つまり依存するオブジェクトが多いので、モックオブジェクトへの差し替えなどが非常に面倒。
          */
         // http client の作成
-        final String CACHE_FILE_NAME = "okhttp.cache";
-        final long MAX_CACHE_SIZE = 4 * 1024 * 1024; // 4MB
-        File cacheDir = new File(getApplicationContext().getCacheDir(), CACHE_FILE_NAME);
-        Cache cache = new Cache(cacheDir, MAX_CACHE_SIZE);
-        OkHttpClient httpClient = new OkHttpClient.Builder()
-                .cache(cache)
-                .addInterceptor(chain -> {
-                    Request.Builder builder1 = chain.request().newBuilder();
-                    return chain.proceed(builder1.build());
-                }).build();
+//        final String CACHE_FILE_NAME = "okhttp.cache";
+//        final long MAX_CACHE_SIZE = 4 * 1024 * 1024; // 4MB
+//        File cacheDir = new File(getApplicationContext().getCacheDir(), CACHE_FILE_NAME);
+//        Cache cache = new Cache(cacheDir, MAX_CACHE_SIZE);
+//        OkHttpClient httpClient = new OkHttpClient.Builder()
+//                .cache(cache)
+//                .addInterceptor(chain -> {
+//                    Request.Builder builder1 = chain.request().newBuilder();
+//                    return chain.proceed(builder1.build());
+//                }).build();
 
-        GitHubService gitHubService = new Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
-                .client(httpClient)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(GitHubService.class);
-
-        GitHubClient client = new GitHubClient(gitHubService);
+//        GitHubService gitHubService = new Retrofit.Builder()
+//                .baseUrl("https://api.github.com/")
+//                .client(httpClient)
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build()
+//                .create(GitHubService.class);
+//
+//        GitHubClient client = new GitHubClient(gitHubService);
 
 //        // daoの作成
         OrmaDatabase database = OrmaDatabase
@@ -90,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         Dao dao = new Dao(database);
 //
 //        // repositoryの作成
-        Repository repository = new Repository(client, dao);
+//        Repository repository = new Repository(client, dao);
 
         /*
          * DaggerなどのDIライブラリを用いて依存性の注入を行う場合。
