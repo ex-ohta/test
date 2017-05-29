@@ -9,9 +9,12 @@ import android.view.View;
 
 import com.example.ex_cellpromote_ohta.disample.DiSampleApplication;
 import com.example.ex_cellpromote_ohta.disample.R;
+import com.example.ex_cellpromote_ohta.disample.database.Dao;
+import com.example.ex_cellpromote_ohta.disample.database.OrmaDatabase;
 import com.example.ex_cellpromote_ohta.disample.di.ActivityComponent;
 import com.example.ex_cellpromote_ohta.disample.di.ActivityModule;
 import com.example.ex_cellpromote_ohta.disample.repository.Repository;
+import com.github.gfx.android.orma.AccessThreadConstraint;
 
 import javax.inject.Inject;
 
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
          * このままだとActivityはどんどん肥大化していくし何より。クラスの中でnewを多数使っている。
          * つまり依存するオブジェクトが多いので、モックオブジェクトへの差し替えなどが非常に面倒。
          */
-//        // http client の作成
+        // http client の作成
 //        final String CACHE_FILE_NAME = "okhttp.cache";
 //        final long MAX_CACHE_SIZE = 4 * 1024 * 1024; // 4MB
 //        File cacheDir = new File(getApplicationContext().getCacheDir(), CACHE_FILE_NAME);
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 //                    Request.Builder builder1 = chain.request().newBuilder();
 //                    return chain.proceed(builder1.build());
 //                }).build();
-//
+
 //        GitHubService gitHubService = new Retrofit.Builder()
 //                .baseUrl("https://api.github.com/")
 //                .client(httpClient)
@@ -67,14 +70,14 @@ public class MainActivity extends AppCompatActivity {
 //                .create(GitHubService.class);
 //
 //        GitHubClient client = new GitHubClient(gitHubService);
-//
+
 //        // daoの作成
-//        OrmaDatabase database = OrmaDatabase
-//                .builder(getApplicationContext())
-//                .writeOnMainThread(AccessThreadConstraint.FATAL)
-//                .readOnMainThread(AccessThreadConstraint.FATAL)
-//                .build();
-//        Dao dao = new Dao(database);
+        OrmaDatabase database = OrmaDatabase
+                .builder(getApplicationContext())
+                .writeOnMainThread(AccessThreadConstraint.FATAL)
+                .readOnMainThread(AccessThreadConstraint.FATAL)
+                .build();
+        Dao dao = new Dao(database);
 //
 //        // repositoryの作成
 //        Repository repository = new Repository(client, dao);
@@ -113,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
                     recyclerView.setAdapter(adapter);
 
                     adapter.addAll(contributors);
-
                 }, throwable -> {
                     throwable.printStackTrace();
                     findViewById(R.id.progress).setVisibility(View.GONE);
